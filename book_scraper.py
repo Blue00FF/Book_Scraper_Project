@@ -1,3 +1,7 @@
+
+
+"""Book Scraper: A script to scrape book information from an online bookstore."""
+
 import re
 from urllib.request import urlopen
 
@@ -55,62 +59,64 @@ categories_list = [
     "Crime",
 ]
 
-base_url = "http://books.toscrape.com/"
+BASE_URL = "http://books.toscrape.com/"
 
-base_html = urlopen(base_url).read().decode("utf-8")
+with urlopen(BASE_URL) as response:
+    base_html = response.read().decode("utf-8")
 
 base_soup = BeautifulSoup(base_html, "html.parser")
 
-user_choice = pyip.inputMenu(
+USER_CHOICE = pyip.inputMenu(
     choices=categories_list,
     prompt="Please choose the genre you'd like to know more about. \n",
     numbered=True,
 ).lower()
 
-user_choice = "-".join(user_choice.split())
+USER_CHOICE = "-".join(USER_CHOICE.split())
 
-print(user_choice)
+print(USER_CHOICE)
 
 categories_links = base_soup.select(
-    "a[href^='catalogue/category/books/" + user_choice + "']"
+    "a[href^='catalogue/category/books/" + USER_CHOICE + "']"
 )
 
-genre_url = base_url + categories_links[0]["href"]
+genre_url = BASE_URL + categories_links[0]["href"]
 
-genre_html = urlopen(genre_url).read().decode("utf-8")
+with urlopen(genre_url) as response:
+    genre_html = response.read().decode("utf-8")
 
 genre_soup = BeautifulSoup(genre_html, "html.parser")
 
 genre_books = genre_soup.select("article")
 
-for i in range(len(genre_books)):
+for i, book in enumerate(genre_books):
 
     title = re.search(
-        'title="(?P<title>.*?)"', str(genre_books[i].select("a[title]")[0])
+        'title="(?P<title>.*?)"', str(book.select("a[title]")[0])
     ).group("title")
 
     rating = re.search(
         'class="star-rating (?P<rating>.*?)"',
-        str(genre_books[i].select("p[class^='star']")[0]),
+        str(book.select("p[class^='star']")[0]),
     ).group("rating")
 
-    price = str(genre_books[i].select('p[class="price_color"]')[0])[23:29]
+    PRICE = str(book.select('p[class="price_color"]')[0])[23:29]
 
     link = re.search(
         'href="../../../(?P<link>.*?)/index.html"',
-        str(genre_books[i].find_all("h3")),
+        str(book.find_all("h3")),
     ).group("link")
 
-    link = base_url + "catalogue/" + link
+    link = BASE_URL + "catalogue/" + link
 
     print(
         f"""Book {i + 1} of {len(genre_books)}
-        
+
         Title: {title}
-        
+
         Rating: {rating} stars
-        
-        Price: {price}
-        
+
+        Price: {PRICE}
+
         Link: {link}"""
     )
