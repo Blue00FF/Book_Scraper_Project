@@ -21,7 +21,6 @@ Lists the project dependencies:
 - PyInputPlus==0.2.12
 - regex==2021.9.30
 - requests==2.26.0
-- urllib3>=2.5.0
 
 ### README.md
 Provides a brief description of the project's functionality.
@@ -34,6 +33,12 @@ Contains standard Python project ignore patterns, including:
 - Environment directories
 - Various IDE and tool-specific files
 
+### LICENSE
+Contains the MIT License for the project.
+
+### AGENTS.md
+This file provides a detailed analysis of the codebase structure and functionality.
+
 ## Project Structure
 ```
 Book_Scraper_Project/
@@ -43,6 +48,7 @@ Book_Scraper_Project/
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
+├── AGENTS.md
 ```
 
 ## Key Features
@@ -64,6 +70,8 @@ Based on git log, the project has gone through several commits:
 2. Added requirements list
 3. Added user choice of genre
 4. Fixed vulnerabilities in requirements.txt
+5. Added AGENTS.md with codebase analysis
+6. Updated README with detailed project information
 
 ## How It Works
 1. The script loads the main page of books.toscrape.com
@@ -78,3 +86,10 @@ Based on git log, the project has gone through several commits:
 3. Add command-line arguments for non-interactive use
 4. Save results to a file (CSV, JSON, etc.)
 5. Add unit tests for the scraping functionality
+
+## Current Status
+- The project is functional and successfully extracts book information
+- All dependencies are properly installed
+- The script works as expected with interactive genre selection
+- The license has been updated to MIT
+- The AGENTS.md file provides comprehensive documentation of the codebase
