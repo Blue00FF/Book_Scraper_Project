@@ -79,16 +79,9 @@ Book_Scraper_Project/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Documentation
-
-For comprehensive codebase analysis and additional documentation, see the [AGENTS.md](AGENTS.md) file.
-
 ## Current Status
 
 - The project is functional and successfully extracts book information
 - All dependencies are properly installed
 - The script works as expected with interactive genre selection
-- The license has been updated to MIT
-- The AGENTS.md file provides comprehensive documentation of the codebase
-
  
