@@ -1,8 +1,4 @@
-
-
-# Book_Scraper_Project
-
-## Book Web Scraper
+# Book Web Scraper
 
 A Python web scraper that extracts book information from [Books to Scrape](http://books.toscrape.com/).
 
