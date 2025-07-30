@@ -17,21 +17,33 @@ A Python web scraper that extracts book information from [Books to Scrape](http:
    cd Book_Scraper_Project
    ```
 
-2. Install the required dependencies:
+2. Create a virtual environment and install dependencies:
    ```bash
-   pip install -r requirements.txt
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt   
    ```
 
 ## Usage
 
-1. Run the scraper:
+1. Activate the virtual environment (if you haven't already):
    ```bash
-   python Book_Scraper.py
+   source .venv/bin/activate
    ```
 
-2. Select a genre from the interactive menu
+2. Run the scraper:
+   ```bash
+   python book_scraper.py
+   ```
 
-3. View book information displayed in the console
+3. Select a genre from the interactive menu
+
+4. View book information displayed in the console
+
+5. To deactivate the virtual environment:
+   ```bash
+   deactivate
+   ```
 
 ## Example Output
 
@@ -60,7 +72,7 @@ Link: http://books.toscrape.com/catalogue/tipping-the-velvet_19/index.html
 
 ```
 Book_Scraper_Project/
-├── Book_Scraper.py          # Main scraping script
+├── book_scraper.py         # Main scraping script
 ├── requirements.txt        # Project dependencies
 ├── README.md               # Project documentation
 ├── .gitignore              # Ignored files
